@@ -33,7 +33,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/daaku/go.errcode"
+	"github.com/fbsamples/fbrell/errcode"
 )
 
 // Some categories are hidden from the listing.
