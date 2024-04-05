@@ -26,8 +26,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/daaku/go.errcode"
-	"github.com/daaku/go.h"
+	h "github.com/daaku/go.h"
+	"github.com/fbsamples/fbrell/errcode"
 )
 
 type ErrorCode interface // HTTP Coded Error.
