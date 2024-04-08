@@ -28,10 +28,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/daaku/go.errcode"
-	"github.com/daaku/go.h"
-	"github.com/daaku/go.h.js.fb"
-	"github.com/daaku/go.static"
+	h "github.com/daaku/go.h"
+	fb "github.com/daaku/go.h.js.fb"
+	static "github.com/daaku/go.static"
+	"github.com/fbsamples/fbrell/errcode"
 	"github.com/fbsamples/fbrell/og"
 	"github.com/fbsamples/fbrell/rellenv"
 	"github.com/fbsamples/fbrell/view"
@@ -186,7 +186,7 @@ func renderObject(ctx context.Context, env *rellenv.Env, s *static.Handler, o *o
 					title,
 					&h.LinkStyle{
 						HREF: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.0/css/bootstrap-combined.min.css",
-                                        },
+					},
 					&static.LinkStyle{
 						HREF: view.DefaultPageConfig.Style,
 					},
