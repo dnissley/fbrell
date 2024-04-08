@@ -24,7 +24,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"go/build"
 	"log"
 	"net/http"
 	"os"
@@ -32,9 +31,9 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/daaku/go.browserid"
-	"github.com/daaku/go.static"
-	"github.com/daaku/go.trustforward"
+	browserid "github.com/daaku/go.browserid"
+	static "github.com/daaku/go.static"
+	trustforward "github.com/daaku/go.trustforward"
 	"github.com/facebookgo/devrestarter"
 	"github.com/facebookgo/fbapi"
 	"github.com/facebookgo/fbapp"
@@ -62,14 +61,6 @@ func defaultAddr() string {
 	return ":43600"
 }
 
-func pkgDir(path string) string {
-	pkg, err := build.Import(path, "", build.FindOnly)
-	if err != nil {
-		return ""
-	}
-	return pkg.Dir
-}
-
 func main() {
 	const signedRequestMaxAge = time.Hour * 24
 	runtime.GOMAXPROCS(runtime.NumCPU())
@@ -84,9 +75,9 @@ func main() {
 	empCheckerAppID := flagSet.Uint64("empcheck-app-id", 0, "empcheck application id")
 	empCheckerAppSecret := flagSet.String("empcheck-app-secret", "", "empcheck application secret")
 	publicDir := flagSet.String(
-		"public-dir", pkgDir("github.com/fbsamples/fbrell/public"), "public files directory")
+		"public-dir", "./public", "public files directory")
 	examplesDir := flagSet.String(
-		"examples-dir", pkgDir("github.com/fbsamples/fbrell/examples/db"), "example files directory")
+		"examples-dir", "./examples/db", "example files directory")
 
 	flagSet.Parse(os.Args[1:])
 	if err := flagenv.ParseSet("RELL_", flagSet); err != nil {
